@@ -1,0 +1,18 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+#    开发环境为false
+    cache: false
+  devtools:
+    restart:
+#    设置热部署的路径
+      additional-exclude: /templates/**,src/main/java
+#      配置数据源
+  datasource:
+    url: jdbc:oracle:thin:@coredb.dvpt:1521:jxbank
+    username: olp
+    password: ybccb123!
+    driver-class-name: oracle.jdbc.OracleDriver
+mybatis:
+  typeAliasesPackage: com.example.demo.entity
+  mapperLocations: classpath:mapper/*.xml
