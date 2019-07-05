@@ -18,8 +18,6 @@ import com.example.demo.entity.UserLoginInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- Created with IntelliJ IDEA.
- Author: Administrator
  Date: 2019/3/8
  Time: 10:09
  Description: 

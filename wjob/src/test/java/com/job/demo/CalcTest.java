@@ -1,10 +1,11 @@
 package com.job.demo;
 
+import com.job.demo.enumtest.EnumTest;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * Created with IntelliJ IDEA.
  * Author: job
  * Date: 2019/7/2 16:15
  * 用于计算
@@ -13,9 +14,8 @@ public class CalcTest {
 
     public static void main(String[] args) {
 
-        System.out.println(new Long(100000L));
-        System.out.println(new Float(100000));
-        System.out.println(new Double(100000));
+        String desc = EnumTest.DesignerScore.getDesc(compareRange(57));
+        System.out.println(desc);
 
     }
 
@@ -42,17 +42,42 @@ public class CalcTest {
     }
 
     //多个数字累加
-    private static BigDecimal adds(String nums){
+    private static BigDecimal addExt(String nums){
         String[] numArr = nums.split(",");
         BigDecimal resultNum = BigDecimal.ZERO;
         for (int i = 0; i < numArr.length; i++) {
             Double aDouble = new Double(numArr[i]);
             BigDecimal bigDecimal = new BigDecimal(aDouble);
             resultNum = resultNum.add(bigDecimal);
-            System.out.println("第"+ (i+1) +"个月" + resultNum);
+            System.out.println("加完第"+ (i+1) +"个值, 结果是 " + resultNum);
         }
-
         return resultNum;
+    }
+
+    /**
+     * 输入值 获取它的范围 eg: 87 --> 80到90范围(60-70,70-80,80-90,90-100)
+     */
+    private static String compareRange(Integer num){
+        if (num != null){
+            if (num >= 80){
+                if (num >= 90){
+                    return "0";
+                }else{
+                    return "1";
+                }
+            }else {
+                if (num >= 70){
+                    return "2";
+                }else {
+                    if (num >=60){
+                        return "3";
+                    }else {
+                        return "4";
+                    }
+                }
+            }
+        }
+        return "";//默认级别值
     }
 
 }

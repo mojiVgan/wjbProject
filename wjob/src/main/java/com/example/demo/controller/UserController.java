@@ -26,7 +26,7 @@ import javax.annotation.Resource;
 import javax.naming.Name;
 
 /**
- Author: wangjiangbo
+ Author: job
  Date: 2019/3/8
  Time: 10:14
  */
