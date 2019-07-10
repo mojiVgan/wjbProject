@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- classPathEntry:数据库的JDBC驱动 -->
+	<classPathEntry location="D:/developSoftWare/apache-maven-3.5.2/repository/mysql-connector-java-5.1.36.jar" />
+	 <context id="DB2Tables" targetRuntime="MyBatis3"><!--MyBatis3  Ibatis2Java5 MyBatis3Simple-->
+		<!-- 去除自动生成的注释 -->
+		<commentGenerator>
+		    <property name="suppressDate" value="true" />
+<!-- 			<property name="suppressAllComments" value="true" />
+ -->		</commentGenerator>
+		 <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://47.94.251.74:3306/oke?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="root" password="okejia66">
+		</jdbcConnection> 
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- targetProject:自动生成代码的位置 -->
+		<javaModelGenerator targetPackage="com.example.demo.entity"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.example.demo.mapper"
+			targetProject="src\main\resources\mapper">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+	<!-- DEFAULT XMLMAPPER  SPRING   MIXEDMAPPER  ANNOTATEDMAPPER  IBATIS GENERIC-CI-->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.example.demo.mapper"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+         <table tableName="bespoke_order_signature_slip" domainObjectName="BespokeOrderSignatureSlip" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table> 
+</context>
+</generatorConfiguration>

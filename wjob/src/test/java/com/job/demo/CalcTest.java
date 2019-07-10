@@ -13,10 +13,10 @@ import java.math.RoundingMode;
 public class CalcTest {
 
     public static void main(String[] args) {
-
-        String desc = EnumTest.DesignerScore.getDesc(compareRange(57));
-        System.out.println(desc);
-
+        System.out.println(multiply("117","9000"));
+        System.out.println(multiply("117","9000").multiply(new BigDecimal(0.3)));
+        System.out.println(multiply("117","8500"));
+        System.out.println(multiply("117","8500").multiply(new BigDecimal(0.3)));
     }
 
     private static BigDecimal add(String num0, String num1){
