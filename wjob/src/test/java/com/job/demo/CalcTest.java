@@ -13,10 +13,10 @@ import java.math.RoundingMode;
 public class CalcTest {
 
     public static void main(String[] args) {
-        System.out.println(multiply("117","9000"));
-        System.out.println(multiply("117","9000").multiply(new BigDecimal(0.3)));
-        System.out.println(multiply("117","8500"));
-        System.out.println(multiply("117","8500").multiply(new BigDecimal(0.3)));
+        System.out.println(divide("47360","81238.03"));//亿*10000  平方米   桃源里卖8000都不亏
+        System.out.println(divide("55930","91832.91"));
+        System.out.println(divide("44000","24799.99")); System.out.print("8075");System.out.println();
+        System.out.println(multiply("8075","2"));
     }
 
     private static BigDecimal add(String num0, String num1){

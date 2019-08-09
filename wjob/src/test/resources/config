@@ -1,0 +1,7 @@
+
+mybatis 自动生成需要的命令
+mybatis-generator:generate -e
+也可以使用右边maven下面Run Configurations里面的一个签
+
+jetty:run
+

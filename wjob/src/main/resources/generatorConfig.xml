@@ -40,6 +40,6 @@
 		</javaClientGenerator>
 		
 		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
-         <table tableName="bespoke_order_signature_slip" domainObjectName="BespokeOrderSignatureSlip" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table> 
+         <table tableName="SCORE_ORDER" domainObjectName="ScoreOrder" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
 </context>
 </generatorConfiguration>
