@@ -4,6 +4,7 @@ import com.job.demo.enumtest.EnumTest;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashMap;
 
 /**
  * Author: job
@@ -13,10 +14,23 @@ import java.math.RoundingMode;
 public class CalcTest {
 
     public static void main(String[] args) {
-        System.out.println(divide("47360","81238.03"));//亿*10000  平方米   桃源里卖8000都不亏
-        System.out.println(divide("55930","91832.91"));
-        System.out.println(divide("44000","24799.99")); System.out.print("8075");System.out.println();
-        System.out.println(multiply("8075","2"));
+        // 0.9900
+        // 0.9939
+        // 7545.81    7500
+        // 42.79
+
+        System.out.println(multiply("105", "9500"));
+        /**
+         * 计算我的fund
+         */
+        //___start___
+        String NewfundRate = "0.9899";
+        String dreamFundRate = "1.04";
+        String OldfundRate = "0.9939";
+        String myLove = "7500";
+        System.out.println(divide(myLove,OldfundRate).multiply(toBigDecimal(NewfundRate)).subtract(toBigDecimal(myLove)));
+        System.out.println(divide(myLove,OldfundRate).multiply(toBigDecimal(dreamFundRate)).subtract(toBigDecimal(myLove)));
+        //___end____
     }
 
     private static BigDecimal add(String num0, String num1){
@@ -40,7 +54,22 @@ public class CalcTest {
         BigDecimal result = bigDecimal0.multiply(bigDecimal1);
         return result;
     }
+   /* private static BigDecimal multiplyAnOther(String num0){
+        BigDecimal bigDecimal1 = new BigDecimal(num1);
+        BigDecimal result = bigDecimal0.multiply(bigDecimal1);
+        return result;
+    }*/
 
+    private static BigDecimal subtract(String num0, String num1){
+        BigDecimal bigDecimal0 = new BigDecimal(num0);
+        BigDecimal bigDecimal1 = new BigDecimal(num1);
+        BigDecimal result = bigDecimal0.subtract(bigDecimal1);
+        return result;
+    }
+    private static BigDecimal toBigDecimal(String num0){
+        BigDecimal bigDecimal = new BigDecimal(num0);
+        return bigDecimal;
+    }
     //多个数字累加
     private static BigDecimal addExt(String nums){
         String[] numArr = nums.split(",");
