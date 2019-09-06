@@ -6,18 +6,17 @@
 <generatorConfiguration>
 	<!-- classPathEntry:数据库的JDBC驱动 -->
 	<!-- <classPathEntry location="F:/repository/mysql/mysql-connector-java/5.1.22/mysql-connector-java-5.1.22.jar" /> -->
+	<!--	<classPathEntry location="D:/development/apache-maven/mysql-connector-java-5.1.22.jar" />-->
 	<classPathEntry location="D:/developSoftWare/apache-maven-3.5.2/repository/mysql-connector-java-5.1.36.jar" />
 	<context id="DB2Tables" targetRuntime="MyBatis3"><!--MyBatis3  Ibatis2Java5 MyBatis3Simple-->
-		<property name="javaFileEncoding" value="UTF-8"/>
 		<!-- 去除自动生成的注释 -->
-		<commentGenerator type="conf.OkeCommentGenerator">
+		<commentGenerator>
 			<property name="suppressDate" value="true" />
-			<property name="suppressAllComments" value="false" />
-		</commentGenerator>
+			<!-- 			<property name="suppressAllComments" value="true" />
+             -->		</commentGenerator>
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 						connectionURL="jdbc:mysql://47.94.251.74:3805/oke?useUnicode=true&amp;characterEncoding=UTF-8&amp;tinyInt1isBit=false"
 						userId="root" password="5zqvur6k">
-			<property name="useInformationSchema" value="true" />
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -25,14 +24,14 @@
 		</javaTypeResolver>
 		<!-- targetProject:自动生成代码的位置 -->
 		<javaModelGenerator targetPackage="com.oke.life.core.model"
-							targetProject="E:/git_workPlace/wjbSpringboot/wjob/src/test/java">
+							targetProject="src/test/java">
 			<!--targetProject="elvdou-conf">-->
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
 		<sqlMapGenerator targetPackage="com.oke.life.core.mappings"
-						 targetProject="E:/git_workPlace/wjbSpringboot/wjob/src/test/java">
+						 targetProject="src/test/java">
 			<!--targetProject="elvdou-conf">-->
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
@@ -40,13 +39,15 @@
 		<!-- DEFAULT XMLMAPPER  SPRING   MIXEDMAPPER  ANNOTATEDMAPPER  IBATIS GENERIC-CI-->
 		<javaClientGenerator type="XMLMAPPER"
 							 targetPackage="com.oke.life.core.dao"
-							 targetProject="E:/git_workPlace/wjbSpringboot/wjob/src/test/java">
+							 targetProject="src/test/java">
 			<!--targetProject="elvdou-conf">-->
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<!--tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+		<!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+		<!--<table tableName="bespoke_order_signature_slip" domainObjectName="BespokeOrderSignatureSlip" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table> -->
 		<!--<table tableName="life_attachment" domainObjectName="LifeAttachment" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
+        <table tableName="life_city_copartner" domainObjectName="LifeCityCopartner" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="life_city_frees_config" domainObjectName="LifeCityFreesConfig" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="life_copartner_apply_flow" domainObjectName="LifeCopartnerApplyFlow" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="life_desire" domainObjectName="LifeDesire" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
@@ -58,10 +59,9 @@
         <table tableName="life_platform_frees_config" domainObjectName="LifePlatformFreesConfig" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="life_shop_category" domainObjectName="LifeShopCategory" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
         <table tableName="life_shop_order" domainObjectName="LifeShopOrder" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
-        <table tableName="life_user" domainObjectName="LifeUser" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
-		<!--<table tableName="life_city_copartner" domainObjectName="LifeCityCopartner" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
-        <table tableName="life_shop_copartner" domainObjectName="LifeShopCopartner" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
-		<!--<table tableName="life_shop_category_rela" domainObjectName="LifeShopCategoryRela" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
-		<!--<table tableName="district" domainObjectName="LifeDistrict" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
+        <table tableName="life_user" domainObjectName="LifeUser" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
+        <table tableName="life_shop_category_rela" domainObjectName="LifeShopCategoryRela" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
+		<table tableName="life_shop_copartner" domainObjectName="LifeShopCopartner" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
+		<!--		<table tableName="district" domainObjectName="LifeDistrict" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 	</context>
 </generatorConfiguration>

@@ -1,22 +1,28 @@
 package com.job.demo;
 
-import com.job.demo.enumtest.EnumTest;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
 
 /**
  * Author: job
  * Date: 2019/7/2 16:15
  * 用于计算
  */
-public class CalcTest {
+public class CalcTest0 {
 
     public static void main(String[] args) {
 
-        System.out.println(subtract("50495.19", "43937.16"));
-
+        /**
+         * 计算我的fund
+         */
+        //___start___
+        String NewfundRate = "1.0325";
+        String dreamFundRate = "1.04";
+        String OldfundRate = "0.9935";
+        String myLove = "8500";
+        System.out.println(divide(myLove,OldfundRate).multiply(toBigDecimal(NewfundRate)).subtract(toBigDecimal(myLove)));
+        System.out.println(divide(myLove,OldfundRate).multiply(toBigDecimal(dreamFundRate)).subtract(toBigDecimal(myLove)));
+        //___end____
     }
 
     private static BigDecimal add(String num0, String num1){
