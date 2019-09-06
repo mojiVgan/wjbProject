@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+app.title = '多 Y 轴示例';
+
+var colors = ['#5793f3', '#d14a61', '#675bba','#a00a0a','#4a4141','#4a4141','black'];
+var dataMonth = [];
+var gjjdata = [];
+var sdbjdata = [];
+var sdbxdata = [];
+var repaybjdata = [];
+var repaybxdata = [];
+var reducedata = [];
+var reduceyeardata = 0;
+var reduceyeardatas = [];
+for (var i = 0; i < 360; i++) {
+    dataMonth.push(i + 1+ "月");
+    //每次少 2.26 & 2.25  平均值2.255
+    gjjdata.push(1645.83 - (i * 2.255));
+    //每次减少 5.24
+    sdbjdata.push(3053.17 - (i * 5.24));
+    sdbxdata.push(2420.41);
+    repaybjdata.push(1645.83 - (i * 2.255) + 3053.17 - (i * 5.24));
+    repaybxdata.push(1645.83 - (i * 2.255) + 2420.41);
+    //差值
+    reducedata.push(3053.17 - (i * 5.24)  - 2420.41);
+    reduceyeardata += (3053.17 - (i * 5.24)  - 2420.41);
+    //每年的差值
+    if ((i+1) % 12 == 0){
+        reduceyeardatas.push(reduceyeardata);
+        reduceyeardata = 0;
+    }else{
+        reduceyeardatas.push(0);
+    }
+}
+option = {
+    color: colors,
+
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
+    grid: {
+        right: '25%'
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    legend: {
+        data:['公积金(等额本金)','商贷(等额本金)','商贷(等额本息)','等额本金','等额本息','差值','每年的差值']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            axisTick: {
+                alignWithLabel: true
+            },
+            data: dataMonth
+        }
+    ],
+    yAxis: [
+       /* {
+            type: 'value',
+            name: '公积金(等额本金)',
+            min: 500,
+            max: 5000,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: colors[0]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}  ￥'
+            }
+        },
+        {
+            type: 'value',
+            name: '商贷(等额本金)',
+            min: 500,
+            max: 5000,
+            position: 'left',
+            offset: 80,
+            axisLine: {
+                lineStyle: {
+                    color: colors[1]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}  ￥'
+            }
+        },
+        {
+            type: 'value',
+            name: '商贷(等额本息)',
+            min: 500,
+            max: 5000,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: colors[2]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} ￥'
+            }
+        },
+        {
+            type: 'value',
+            name: '等额本金',
+            min: 500,
+            max: 5000,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: colors[3]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} ￥'
+            }
+        },*/
+        {
+            type: 'value',
+            name: '金额',
+            min: 500,
+            max: 5000,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: colors[0]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} ￥'
+            }
+        },
+        {
+            type: 'value',
+            name: '小差值',
+            min: -1500,
+            max: 2000,
+            position: 'right',
+            axisLine: {
+                lineStyle: {
+                    color: colors[1]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} ￥'
+            }
+        },
+        {
+            type: 'value',
+            name: '大差值',
+            min: -15000,
+            max: 10000,
+            position: 'right',
+            offset: 80,
+            axisLine: {
+                lineStyle: {
+                    color: colors[1]
+                }
+            },
+            axisLabel: {
+                formatter: '{value} ￥'
+            }
+        }
+    ],
+    series: [
+        {
+            name:'公积金(等额本金)',
+            type:'bar',
+            yAxisIndex: 0,
+            data:gjjdata
+        },
+        {
+            name:'商贷(等额本金)',
+            type:'bar',
+            yAxisIndex: 0,
+            data:sdbjdata
+        },
+        {
+            name:'商贷(等额本息)',
+            // type:'line',
+            type:'bar',
+            yAxisIndex: 0,
+            data:sdbxdata
+        },
+        {
+            name:'等额本金',
+            type:'line',
+            yAxisIndex: 0,
+            data:repaybjdata
+        },
+        {
+            name:'等额本息',
+            type:'line',
+            yAxisIndex: 0,
+            data:repaybxdata
+        },
+        {
+            name:'差值',
+            type:'line',
+            yAxisIndex: 1,
+            data:reducedata
+        },
+        {
+            name:'每年的差值',
+            type:'bar',
+            yAxisIndex: 2,
+            data:reduceyeardatas
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

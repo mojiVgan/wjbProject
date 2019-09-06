@@ -51,5 +51,9 @@ public class UserController {
         return userLoginInfo.toString();
     }
 
+    @RequestMapping("/charjs")
+    public String page(){
+        return "multiple-y-axis";
+    }
 
 }
