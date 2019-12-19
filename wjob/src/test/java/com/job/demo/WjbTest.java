@@ -1,8 +1,7 @@
 package com.job.demo;
 
-import com.example.demo.entity.ScoreOrder;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
 
 /**
  * Author: wangjiangbo
@@ -11,12 +10,11 @@ import java.util.Objects;
  */
 public class WjbTest {
 
-    public static void main(String[] args) {
-        ScoreOrder scoreOrder = new ScoreOrder();
-        Long scoreOrderId = scoreOrder.getId();
-        if (Objects.nonNull(scoreOrderId)){
-            System.out.println("....");
-        }
-        System.out.println(scoreOrderId);
+    public static void main(String[] args) throws Exception{
+
+        System.out.println(StringUtils.isNotBlank(""));
+        System.out.println(StringUtils.isNoneBlank(""));
+        System.out.println(StringUtils.isNotBlank(" "));
+
     }
 }
