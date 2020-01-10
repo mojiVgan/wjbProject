@@ -16,5 +16,12 @@ public class WjbTest {
         System.out.println(StringUtils.isNoneBlank(""));
         System.out.println(StringUtils.isNotBlank(" "));
 
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("1");
+        System.out.println(stringBuffer);
+
+        String str = "6666";
+        System.out.println(str + "");
+
     }
 }

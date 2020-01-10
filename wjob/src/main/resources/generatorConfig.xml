@@ -66,11 +66,11 @@
 <!--		<table tableName="life_city_shop_district" domainObjectName="LifeCityShopDistrict" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 <!--		<table tableName="user_partner_decorate_detail" domainObjectName="UserpartnerDecorateDetail" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 
-<!--		<table tableName="life_goods" domainObjectName="LifeGoods" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
+		<table tableName="life_goods" domainObjectName="LifeGoods" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
 <!--		<table tableName="life_attributes" domainObjectName="LifeAttributes" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 <!--		<table tableName="life_goods_attributes_rela" domainObjectName="LifeGoodsAttributesRela" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 <!--		<table tableName="life_goods_sku" domainObjectName="LifeGoodsSku" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
-		<table tableName="life_goods_spec_val_rela" domainObjectName="LifeGoodsSpecValRela" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
+<!--		<table tableName="life_goods_spec_val_rela" domainObjectName="LifeGoodsSpecValRela" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 <!--		<table tableName="life_shop_group" domainObjectName="LifeShopGroup" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 <!--		<table tableName="life_spec" domainObjectName="LifeSpec" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 
