@@ -12,19 +12,19 @@ public class CalcTest0 {
 
     public static void main(String[] args) {
 
-        System.out.println(calcFund("1.0602", "14012.72"));
+        System.out.println(calcFund("0.9555", "3500","0.9348"));
 
     }
 
 
     /**计算我的fund*/
-    private static BigDecimal calcFund(String NewfundRate, String myLove){
+    private static BigDecimal calcFund(String NewfundRate, String myLove, String oldfundRate){
         //___start___
 //        String NewfundRate = "0.9401";
         String dreamFundRate = "1.04";
-        String OldfundRate = "1.0530";
+//        String OldfundRate = "1.0530";
 //        String myLove = "5000";
-        BigDecimal retBigDecimal = divide(myLove, OldfundRate).multiply(toBigDecimal(NewfundRate)).subtract(toBigDecimal(myLove));
+        BigDecimal retBigDecimal = divide(myLove, oldfundRate).multiply(toBigDecimal(NewfundRate)).subtract(toBigDecimal(myLove));
 //        System.out.println(divide(myLove,OldfundRate).multiply(toBigDecimal(dreamFundRate)).subtract(toBigDecimal(myLove)));
         return retBigDecimal;
         //___end____
