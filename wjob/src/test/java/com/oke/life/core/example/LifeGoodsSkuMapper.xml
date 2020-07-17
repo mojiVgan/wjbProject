@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oke.life.core.example.LifeGoodsSkuMapper" >
+  <resultMap id="BaseResultMap" type="com.oke.life.core.example.LifeGoodsSku" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="sku_sn" property="skuSn" jdbcType="VARCHAR" />
+    <result column="sku_no" property="skuNo" jdbcType="VARCHAR" />
+    <result column="goods_spec_val_ids" property="goodsSpecValIds" jdbcType="VARCHAR" />
+    <result column="market_price" property="marketPrice" jdbcType="DECIMAL" />
+    <result column="spec_price" property="specPrice" jdbcType="DECIMAL" />
+    <result column="spec_stock" property="specStock" jdbcType="INTEGER" />
+    <result column="warn_stock" property="warnStock" jdbcType="INTEGER" />
+    <result column="sale_num" property="saleNum" jdbcType="INTEGER" />
+    <result column="init_spec" property="initSpec" jdbcType="INTEGER" />
+    <result column="del" property="del" jdbcType="INTEGER" />
+    <result column="spec_weight" property="specWeight" jdbcType="DECIMAL" />
+    <result column="spec_volume" property="specVolume" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="goods_img" property="goodsImg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, shop_id, goods_id, sku_sn, sku_no, goods_spec_val_ids, market_price, spec_price, 
+    spec_stock, warn_stock, sale_num, init_spec, del, spec_weight, spec_volume, create_time, 
+    modify_time, goods_img
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.oke.life.core.example.LifeGoodsSkuExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from life_goods_sku
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from life_goods_sku
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from life_goods_sku
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.oke.life.core.example.LifeGoodsSkuExample" >
+    delete from life_goods_sku
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.oke.life.core.example.LifeGoodsSku" >
+    insert into life_goods_sku (id, shop_id, goods_id, 
+      sku_sn, sku_no, goods_spec_val_ids, 
+      market_price, spec_price, spec_stock, 
+      warn_stock, sale_num, init_spec, 
+      del, spec_weight, spec_volume, 
+      create_time, modify_time, goods_img
+      )
+    values (#{id,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, 
+      #{skuSn,jdbcType=VARCHAR}, #{skuNo,jdbcType=VARCHAR}, #{goodsSpecValIds,jdbcType=VARCHAR}, 
+      #{marketPrice,jdbcType=DECIMAL}, #{specPrice,jdbcType=DECIMAL}, #{specStock,jdbcType=INTEGER}, 
+      #{warnStock,jdbcType=INTEGER}, #{saleNum,jdbcType=INTEGER}, #{initSpec,jdbcType=INTEGER}, 
+      #{del,jdbcType=INTEGER}, #{specWeight,jdbcType=DECIMAL}, #{specVolume,jdbcType=DECIMAL}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}, #{goodsImg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.oke.life.core.example.LifeGoodsSku" >
+    insert into life_goods_sku
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopId != null" >
+        shop_id,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="skuSn != null" >
+        sku_sn,
+      </if>
+      <if test="skuNo != null" >
+        sku_no,
+      </if>
+      <if test="goodsSpecValIds != null" >
+        goods_spec_val_ids,
+      </if>
+      <if test="marketPrice != null" >
+        market_price,
+      </if>
+      <if test="specPrice != null" >
+        spec_price,
+      </if>
+      <if test="specStock != null" >
+        spec_stock,
+      </if>
+      <if test="warnStock != null" >
+        warn_stock,
+      </if>
+      <if test="saleNum != null" >
+        sale_num,
+      </if>
+      <if test="initSpec != null" >
+        init_spec,
+      </if>
+      <if test="del != null" >
+        del,
+      </if>
+      <if test="specWeight != null" >
+        spec_weight,
+      </if>
+      <if test="specVolume != null" >
+        spec_volume,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="goodsImg != null" >
+        goods_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null" >
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="skuSn != null" >
+        #{skuSn,jdbcType=VARCHAR},
+      </if>
+      <if test="skuNo != null" >
+        #{skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSpecValIds != null" >
+        #{goodsSpecValIds,jdbcType=VARCHAR},
+      </if>
+      <if test="marketPrice != null" >
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="specPrice != null" >
+        #{specPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="specStock != null" >
+        #{specStock,jdbcType=INTEGER},
+      </if>
+      <if test="warnStock != null" >
+        #{warnStock,jdbcType=INTEGER},
+      </if>
+      <if test="saleNum != null" >
+        #{saleNum,jdbcType=INTEGER},
+      </if>
+      <if test="initSpec != null" >
+        #{initSpec,jdbcType=INTEGER},
+      </if>
+      <if test="del != null" >
+        #{del,jdbcType=INTEGER},
+      </if>
+      <if test="specWeight != null" >
+        #{specWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="specVolume != null" >
+        #{specVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goodsImg != null" >
+        #{goodsImg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.oke.life.core.example.LifeGoodsSkuExample" resultType="java.lang.Integer" >
+    select count(*) from life_goods_sku
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update life_goods_sku
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.shopId != null" >
+        shop_id = #{record.shopId,jdbcType=BIGINT},
+      </if>
+      <if test="record.goodsId != null" >
+        goods_id = #{record.goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="record.skuSn != null" >
+        sku_sn = #{record.skuSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuNo != null" >
+        sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsSpecValIds != null" >
+        goods_spec_val_ids = #{record.goodsSpecValIds,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marketPrice != null" >
+        market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.specPrice != null" >
+        spec_price = #{record.specPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.specStock != null" >
+        spec_stock = #{record.specStock,jdbcType=INTEGER},
+      </if>
+      <if test="record.warnStock != null" >
+        warn_stock = #{record.warnStock,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleNum != null" >
+        sale_num = #{record.saleNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.initSpec != null" >
+        init_spec = #{record.initSpec,jdbcType=INTEGER},
+      </if>
+      <if test="record.del != null" >
+        del = #{record.del,jdbcType=INTEGER},
+      </if>
+      <if test="record.specWeight != null" >
+        spec_weight = #{record.specWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.specVolume != null" >
+        spec_volume = #{record.specVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null" >
+        modify_time = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.goodsImg != null" >
+        goods_img = #{record.goodsImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update life_goods_sku
+    set id = #{record.id,jdbcType=BIGINT},
+      shop_id = #{record.shopId,jdbcType=BIGINT},
+      goods_id = #{record.goodsId,jdbcType=BIGINT},
+      sku_sn = #{record.skuSn,jdbcType=VARCHAR},
+      sku_no = #{record.skuNo,jdbcType=VARCHAR},
+      goods_spec_val_ids = #{record.goodsSpecValIds,jdbcType=VARCHAR},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      spec_price = #{record.specPrice,jdbcType=DECIMAL},
+      spec_stock = #{record.specStock,jdbcType=INTEGER},
+      warn_stock = #{record.warnStock,jdbcType=INTEGER},
+      sale_num = #{record.saleNum,jdbcType=INTEGER},
+      init_spec = #{record.initSpec,jdbcType=INTEGER},
+      del = #{record.del,jdbcType=INTEGER},
+      spec_weight = #{record.specWeight,jdbcType=DECIMAL},
+      spec_volume = #{record.specVolume,jdbcType=DECIMAL},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      modify_time = #{record.modifyTime,jdbcType=TIMESTAMP},
+      goods_img = #{record.goodsImg,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.oke.life.core.example.LifeGoodsSku" >
+    update life_goods_sku
+    <set >
+      <if test="shopId != null" >
+        shop_id = #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="skuSn != null" >
+        sku_sn = #{skuSn,jdbcType=VARCHAR},
+      </if>
+      <if test="skuNo != null" >
+        sku_no = #{skuNo,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSpecValIds != null" >
+        goods_spec_val_ids = #{goodsSpecValIds,jdbcType=VARCHAR},
+      </if>
+      <if test="marketPrice != null" >
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="specPrice != null" >
+        spec_price = #{specPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="specStock != null" >
+        spec_stock = #{specStock,jdbcType=INTEGER},
+      </if>
+      <if test="warnStock != null" >
+        warn_stock = #{warnStock,jdbcType=INTEGER},
+      </if>
+      <if test="saleNum != null" >
+        sale_num = #{saleNum,jdbcType=INTEGER},
+      </if>
+      <if test="initSpec != null" >
+        init_spec = #{initSpec,jdbcType=INTEGER},
+      </if>
+      <if test="del != null" >
+        del = #{del,jdbcType=INTEGER},
+      </if>
+      <if test="specWeight != null" >
+        spec_weight = #{specWeight,jdbcType=DECIMAL},
+      </if>
+      <if test="specVolume != null" >
+        spec_volume = #{specVolume,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goodsImg != null" >
+        goods_img = #{goodsImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.oke.life.core.example.LifeGoodsSku" >
+    update life_goods_sku
+    set shop_id = #{shopId,jdbcType=BIGINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      sku_sn = #{skuSn,jdbcType=VARCHAR},
+      sku_no = #{skuNo,jdbcType=VARCHAR},
+      goods_spec_val_ids = #{goodsSpecValIds,jdbcType=VARCHAR},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      spec_price = #{specPrice,jdbcType=DECIMAL},
+      spec_stock = #{specStock,jdbcType=INTEGER},
+      warn_stock = #{warnStock,jdbcType=INTEGER},
+      sale_num = #{saleNum,jdbcType=INTEGER},
+      init_spec = #{initSpec,jdbcType=INTEGER},
+      del = #{del,jdbcType=INTEGER},
+      spec_weight = #{specWeight,jdbcType=DECIMAL},
+      spec_volume = #{specVolume,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      goods_img = #{goodsImg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

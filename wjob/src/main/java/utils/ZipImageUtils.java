@@ -1,12 +1,9 @@
 package utils;
 
-import com.elvdou.koala.core.common.Constants;
-import com.elvdou.koala.infra.common.ImgPathUtil;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.apache.commons.lang3.StringUtils;
-import org.openkoala.koala.commons.InvokeResult;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -53,10 +50,12 @@ public class ZipImageUtils {
      * 压缩图片，大小不变
      */
     public static String zipImage(File file, HttpServletRequest request, String savePath, String oldFileName) throws Exception {
-        String commentpath = Constants.LIFE_LAYOUT_PATH;
+//        String commentpath = Constants.LIFE_LAYOUT_PATH;
+        String commentpath = "";
         String filePath;
         String filename = file.getName();
-        String path = ImgPathUtil.getHashcold(filename);
+//        String path = ImgPathUtil.getHashcold(filename);
+        String path = getHashcold(filename);
         String fileSuffix = ".jpg";
         if (StringUtils.isNoneBlank(oldFileName) && oldFileName.contains(LAST_INDEX)) {
             fileSuffix = oldFileName.substring(oldFileName.lastIndexOf(LAST_INDEX));
@@ -92,15 +91,16 @@ public class ZipImageUtils {
      * @param h       剪裁区域高度
      * @param quality 图片质量
      */
-    public static InvokeResult zoomCutSaveImageByte(InputStream is, int zoomw, int zoomh, int x, int y, int w, int h,
+    public static ApiInvokeResult zoomCutSaveImageByte(InputStream is, int zoomw, int zoomh, int x, int y, int w, int h,
                                                     HttpServletRequest request, String savePath, float quality) {
 
         // 以下其实可以忽略，将图片压缩处理了一下，可以小一点
         BufferedImage bi;
         try {
-            String commentpath = Constants.HOUSELAYOUT_PATH_WEB;
+//            String commentpath = Constants.HOUSELAYOUT_PATH_WEB;
+            String commentpath = "";
             String typePath = savePath;
-            String path = ImgPathUtil.getHashcold(UUID.randomUUID().toString());
+            String path = getHashcold(UUID.randomUUID().toString());
             String dir = request.getSession().getServletContext().getRealPath(commentpath) + "/" + savePath + "/";
             String filename = System.nanoTime() + ".jpg";
             savePath = dir + path;
@@ -129,10 +129,10 @@ public class ZipImageUtils {
             jpeg.setQuality(quality, true);
             encoder.encode(tag, jpeg);
             newimage.close();
-            return InvokeResult.success(commentpath + typePath + "/" + path + filename);
+            return ApiInvokeResult.success(commentpath + typePath + "/" + path + filename);
         } catch (IOException e) {
             e.printStackTrace();
-            return InvokeResult.failure("失败");
+            return ApiInvokeResult.failure("失败","0000");
         }
     }
 
@@ -164,5 +164,15 @@ public class ZipImageUtils {
         return bimage;
     }
 
+
+    //---------------
+
+    public static String getHashcold(String fileName){
+        int hashCold = fileName.hashCode();
+        int dir1 = hashCold&0xf;
+        int dir2 = (hashCold&0xf0)>>4;
+        String path = dir1+"/"+dir2+"/";
+        return path;
+    }
 
 }
