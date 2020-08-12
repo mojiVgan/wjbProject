@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wjob/wjbSpringboot.iml" filepath="$PROJECT_DIR$/wjob/wjbSpringboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wjob/wjbDaily.iml" filepath="$PROJECT_DIR$/wjob/wjbDaily.iml" />
     </modules>
   </component>
 </project>

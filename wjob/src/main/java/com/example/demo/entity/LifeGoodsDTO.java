@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Author: wangjiangbo
+ * Author: job
  * Date: 2019/12/23 15:42
  * Description:聚联惠商品(添加)
  */

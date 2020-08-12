@@ -1,6 +1,6 @@
 package com.job.demo.lamadatest;
 
-import com.job.demo.Animal;
+import com.job.demo.entity.Animal;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * Author: wangjiangbo
+ * Author: job
  * Date: 2019/8/30 13:54
  * Description:
  */

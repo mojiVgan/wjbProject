@@ -1,7 +1,7 @@
-package com.job.demo.threadtest;
+package com.job.demo.singleton;
 
 /**
- * Author: wangjiangbo
+ * Author: job
  * Date: 2020/1/10 14:53
  * Description:
  */

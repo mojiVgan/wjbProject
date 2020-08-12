@@ -29,7 +29,7 @@ public class EnumTest {
     }
 
     /**
-     * Created by wangjiangbo on 2019/7/5
+     * Created by job on 2019/7/5
      * 通过枚举来显示对应阶段的值
      */
     public enum DesignerScore {

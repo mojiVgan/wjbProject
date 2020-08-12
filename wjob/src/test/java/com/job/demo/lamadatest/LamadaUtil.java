@@ -1,6 +1,6 @@
 package com.job.demo.lamadatest;
 
-import com.job.demo.Animal;
+import com.job.demo.entity.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * Author: wangjiangbo
+ * Author: job
  * Date: 2020/5/11 17:37
  * Description:
  */

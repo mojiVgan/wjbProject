@@ -1,13 +1,20 @@
 package com.job.demo;
 
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 /**
- * Author: wangjiangbo
+ * Author: job
  * Date: 2019/8/6 14:01
  * Description:
  */
+@SpringBootTest
 public class WjbTest {
 
     public static void main(String[] args) throws Exception{
@@ -22,6 +29,8 @@ public class WjbTest {
 
         String str = "6666";
         System.out.println(str + "");
+        System.out.println("---------");
+        Assert.assertNotEquals(1L,1L);
 
     }
 }
