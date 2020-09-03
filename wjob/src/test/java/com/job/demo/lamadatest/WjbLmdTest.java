@@ -3,10 +3,7 @@ package com.job.demo.lamadatest;
 import com.job.demo.entity.Animal;
 import org.apache.commons.collections.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -59,7 +56,14 @@ public class WjbLmdTest {
         animals = LamadaUtil.map(animals, animal -> new Animal(animal.getName().toUpperCase(), animal.getScore()));
         System.out.println("函数表达式转换用法 name转换为大写： ");
         System.out.println(animals);
-        //----
+        //----20200826
+        /*reduce()使用
+        1.第一个参数是我们给出的初值，
+        2.第二个参数是累加器，可以自己用实现接口完成想要的操作，这里使用Bigdecimal的add方法
+        3.最后reduce会返回计算后的结果*/
+
+//        BigDecimal qty = Order.getOrderItems().stream().map(p -> p.getProductQty()).reduce(BigDecimal.ZERO,BigDecimal::add);
+
     }
 
 
