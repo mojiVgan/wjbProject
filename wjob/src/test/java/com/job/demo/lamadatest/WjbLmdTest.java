@@ -5,6 +5,7 @@ import org.apache.commons.collections.CollectionUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Author: job
@@ -63,6 +64,28 @@ public class WjbLmdTest {
         3.最后reduce会返回计算后的结果*/
 
 //        BigDecimal qty = Order.getOrderItems().stream().map(p -> p.getProductQty()).reduce(BigDecimal.ZERO,BigDecimal::add);
+
+        //---------------------- flatMap  结合streamof  将两个 list合并成一个list
+        animals = initAnimal(animals);
+        List<Animal> animallist = new ArrayList<>();
+        animallist.add(new Animal("wuwu",57));
+        animallist.add(new Animal("liuliu",67));
+        List <Animal> collect2 = Stream.of(animals, animallist).flatMap(animals1 -> animals1.stream()).collect(Collectors.toList());
+        System.out.println("flatMap  结合streamof  将两个 list合并成一个list");
+        System.out.println(collect2);
+        //--------------------- 求最大值 最小值
+        animals = initAnimal(animals);
+        Optional <Animal> max = animals.stream().max(Comparator.comparing(animal -> animal.getScore()));
+        Optional <Animal> min = animals.stream().min(Comparator.comparing(animal -> animal.getScore()));
+        //判断是否有值
+        if (max.isPresent()){
+            System.out.println("最大值");
+            System.out.println(max);
+        }
+        if (min.isPresent()) {
+            System.out.println("最小值");
+            System.out.println(min);
+        }
 
     }
 
