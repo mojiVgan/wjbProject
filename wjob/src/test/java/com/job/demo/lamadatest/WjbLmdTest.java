@@ -77,15 +77,22 @@ public class WjbLmdTest {
         animals = initAnimal(animals);
         Optional <Animal> max = animals.stream().max(Comparator.comparing(animal -> animal.getScore()));
         Optional <Animal> min = animals.stream().min(Comparator.comparing(animal -> animal.getScore()));
-        //判断是否有值
+        //判断是否有值   可以使用max.orElse(new Student())，当值为null时就使用给定值；也可以使用max.orElseGet(() -> new Student());这需要传入一个Supplier的lambda表达式。
         if (max.isPresent()){
             System.out.println("最大值");
+            System.out.println(max.get());
             System.out.println(max);
         }
         if (min.isPresent()) {
             System.out.println("最小值");
-            System.out.println(min);
+            System.out.println(min.get());
         }
+        //-----累加-------------
+
+        Integer reduce = Stream.of(1, 2, 3, 4).reduce(0, (acc, x) -> acc+ x);
+        System.out.println("累加 初始值为 0的累加器");
+        System.out.println(reduce);
+
 
     }
 
