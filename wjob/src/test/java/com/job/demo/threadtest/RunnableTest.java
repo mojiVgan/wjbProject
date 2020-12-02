@@ -11,9 +11,18 @@ public class RunnableTest implements Runnable {
         System.out.println("线程名字" + Thread.currentThread().getName());
     }
 
+
     public static void main(String[] args) {
         //java8 流   可以省略RunnableTest
-        new Thread(()-> System.out.println(Thread.currentThread().getName())).start();
+//        new Thread(()-> System.out.println(Thread.currentThread().getName())).start();
+
+
+
+        RunnableTest runnableTest = new RunnableTest();
+        new Thread(runnableTest).start();
+
+
 
     }
+
 }

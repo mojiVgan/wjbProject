@@ -75,7 +75,7 @@
 <!--		<table tableName="life_spec" domainObjectName="LifeSpec" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 
 
-				<table tableName="life_pay_account" domainObjectName="LifePayAccount" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
+<!--				<table tableName="life_pay_account" domainObjectName="LifePayAccount" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>-->
 				<table tableName="life_draw_money_record" domainObjectName="LifeDrawMoneyRecord" enableSelectByExample="true"   enableUpdateByExample="true" enableCountByExample="true" enableDeleteByExample="true" selectByExampleQueryId="true"></table>
 
 	</context>
