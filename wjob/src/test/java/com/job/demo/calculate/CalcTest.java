@@ -1,4 +1,4 @@
-package com.job.demo;
+package com.job.demo.calculate;
 
 import com.job.demo.enumtest.EnumTest;
 
@@ -15,10 +15,16 @@ public class CalcTest {
 
     public static void main(String[] args) {
 
-        System.out.println(subtract("50495.19", "43937.16"));
+//        System.out.println(subtract("50495.19", "43937.16"));
 
+        dealPointNum();
     }
 
+    /**
+     * 20201221
+     * 因为浮点数的误差舍入导致，只有2的幂数可以使用简单的二进制表示法精确表示。
+     * 不对应于2此方的数字必须四舍五入以适应有限数量的位，因此，0.1*3 是不等于 0.3 的。
+     */
     private static BigDecimal add(String num0, String num1){
         BigDecimal bigDecimal0 = new BigDecimal(num0);
         BigDecimal bigDecimal1 = new BigDecimal(num1);
@@ -93,6 +99,15 @@ public class CalcTest {
             }
         }
         return "";//默认级别值
+    }
+
+    private static  void dealPointNum(){
+
+        System.out.println("(0.1 * 2 ) = " + (0.1 * 2));
+        System.out.println("(0.1 * 2 == 0.2) = " + (0.1 * 2 == 0.2));
+        System.out.println("(0.1 * 3 ) = " + (0.1 * 3));
+        System.out.println("(0.1 * 3 == 0.3) = " + (0.1 * 3 == 0.3));
+
     }
 
 }
