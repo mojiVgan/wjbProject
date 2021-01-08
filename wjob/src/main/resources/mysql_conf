@@ -1,0 +1,7 @@
+以管理员身份打开 命令提示符 执行 net start MYSQL80 ;
+
+net stop MYSQL80;
+
+MYSQL80 是本地数据库的名字；
+
+退出命令提示符： exit；

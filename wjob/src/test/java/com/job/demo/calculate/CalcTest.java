@@ -17,14 +17,21 @@ public class CalcTest {
 
 //        System.out.println(subtract("50495.19", "43937.16"));
 
-        dealPointNum();
+//        dealPointNum();
+
+        System.out.println("(0 % 200) = " + (0 % 200));
+        System.out.println("(1 % 200) = " + (1 % 200));
+        System.out.println("(2 % 200) = " + (2 % 200));
+        System.out.println("(3 % 200) = " + (3 % 200));
+        System.out.println("(4 % 200) = " + (4 % 200));
+        System.out.println("(5 % 200) = " + (5 % 200));
+        System.out.println("(10 % 200) = " + (10 % 200));
+        System.out.println("(50 % 200) = " + (50 % 200));
+        System.out.println("(100 % 200) = " + (100 % 200));
+        System.out.println("(200 % 200) = " + (200 % 200));
     }
 
-    /**
-     * 20201221
-     * 因为浮点数的误差舍入导致，只有2的幂数可以使用简单的二进制表示法精确表示。
-     * 不对应于2此方的数字必须四舍五入以适应有限数量的位，因此，0.1*3 是不等于 0.3 的。
-     */
+
     private static BigDecimal add(String num0, String num1){
         BigDecimal bigDecimal0 = new BigDecimal(num0);
         BigDecimal bigDecimal1 = new BigDecimal(num1);
@@ -101,6 +108,12 @@ public class CalcTest {
         return "";//默认级别值
     }
 
+
+    /**
+     * 20201221
+     * 因为浮点数的误差舍入导致，只有2的幂数可以使用简单的二进制表示法精确表示。
+     * 不对应于2此方的数字必须四舍五入以适应有限数量的位，因此，0.1*3 是不等于 0.3 的。
+     */
     private static  void dealPointNum(){
 
         System.out.println("(0.1 * 2 ) = " + (0.1 * 2));

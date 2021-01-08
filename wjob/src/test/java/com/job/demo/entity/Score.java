@@ -21,4 +21,20 @@ public class Score {
         this.name = name;
         this.scoreNum = scoreNum;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getScoreNum() {
+        return scoreNum;
+    }
+
+    public void setScoreNum(BigDecimal scoreNum) {
+        this.scoreNum = scoreNum;
+    }
 }
